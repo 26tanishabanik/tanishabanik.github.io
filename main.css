@@ -1,0 +1,684 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Lobster&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-family: "Kiwi Maru", monospace;
+    font-size:12px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: black;
+    box-shadow: inset 100px 100px 100px -20px rgb(96, 143, 150), 
+              inset -100px 100px 100px -20px rgb(96, 143, 150);
+    /* background: linear-gradient( 
+        to right,
+        rgb(150, 196, 202) 0%
+        #FFF5EE 5%,
+        rgb(150, 196, 202) 100%
+      );*/
+}
+
+a{
+    text-decoration: none;
+    color: rgb(13, 14, 14);
+}
+
+a:hover{
+    color:rgb(141, 77, 143);
+}
+
+ul{
+    list-style: none;
+}
+
+p{
+    font-size:  1.4rem;
+}
+
+img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+header{
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.container{
+    width:100%;
+    max-width: 98rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav-brand{
+    width: 7rem;
+}
+
+nav{
+   width: 100%;
+   display:flex;
+   align-items:center;
+   justify-content: space-between;
+   padding: 1rem 0;
+   border-bottom: 2px solid rgba(255,255,255,.2);
+}
+
+.profile-pic{
+    height:10rem;
+    width:auto;
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem 0;
+}
+
+.line1{
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg,
+        rgba(249,165,14,1) 0%,
+        rgb(255,255,255) 100%
+    );
+}
+.line3{
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg,
+        rgba(249,165,14,1) 0%,
+        rgb(255,255,255) 100%
+    );
+}
+.line2{
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg,
+        rgb(98, 20, 100) 0%,
+        rgb(255,255,255) 100%
+    );
+}
+
+.menu-icon{
+    cursor: pointer;
+    z-index: 999;
+    position: fixed;
+    right:0;
+    top:0;
+    background: rgba(55,55,55,0.5);
+    padding: 1.2rem;
+    border-radius: 0% 0% 0% 40%;
+}
+
+.caption{
+    display:block;
+}
+
+.nav-list{
+    width: 24rem;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.7;
+    position: fixed;
+    top:0;
+    right:-26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: start;
+    z-index: 1;
+    transition: all 658ms ease-in-out;
+}
+
+.nav-list.active{
+    right:0;
+}
+
+.nav-item{
+   margin: 1.2rem auto;
+   display: flex;
+   justify-content: center; 
+}
+
+.nav-link{
+    opacity: 0;
+    font-size: 1.7rem;
+    text-orientation: uppercase;
+    color:white;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.nav-link:hover{
+    color:rgb(230, 231, 135);
+}
+
+
+.toggle{
+    background: none;
+}
+
+.toggle .line1{
+    transform:rotate(180deg) translate(-5px, 6px) scaleX(3)
+}
+
+.toggle .line2{
+    opacity:0;
+}
+.toggle .line3{
+    transform:rotate(-90deg) translate(-5px, 6px) scaleX(3);
+    margin-left: 0px;
+}
+
+@keyframes navLinkAnimate{
+    from{
+        opacity:0;
+        transform: translate(50px)
+    }
+    to{
+        opacity:1;
+        transform: translate(0px)
+    }
+}
+
+
+
+.landing-page{
+    height: 100vh;
+    min-width: 360px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("images/ezgif.com-gif-maker.gif");
+    background-blend-mode: luminosity;
+    background-position: center; 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    /* background-blend-mode: luminosity;
+    background-position: 0px 0px; 
+    background-size: cover;
+    background-repeat: repeat;  */
+    /* animation: scroll 70s linear infinite; */
+    /* perspective: 900px;
+    perspective-origin: 50% 50%; */
+    /* animation: scroll 20s linear infinite;
+    perspective: 1000px;
+    perspective-origin: 100% 100%; */
+}
+
+.main-message{
+    margin-top: 7rem;
+    width:100%;
+    max-width:58rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.main-message h2{
+    letter-spacing:1rem;
+    font-family: "Kiwi Maru", monospace;
+    font-size:2.5rem;
+    font-weight:bold;
+    overflow:hidden;
+    white-space:nowrap;
+    animation: typing 3s steps(35), blink 0.5s ease-in-out 2s infinite;
+    width:35ch;
+    margin:auto;
+    color: white;
+    border-right: 4px solid rgba(255,255,255,1)
+}
+.main-message h3,p{
+    font-family: "Kiwi Maru", monospace;
+    font-weight: bold;
+
+}
+
+@keyframes typing{
+    75%{
+        width:0ch;
+        color:rgb(44, 98, 160)
+    }
+    100%{
+        width:35ch;
+
+    }
+}
+
+@keyframes blink{
+    from{
+        border-right: 4px solid rgba(255,255,255,0);
+    }
+    to{
+        border-right: 4px solid rgb(194,194,194);
+    }
+    50% { border-color: rgb(235, 135, 230); }
+}
+
+@keyframes scroll {
+    100%{
+     background-position:0px -3000px;
+   }
+ }
+ 
+ @media (prefers-reduced-motion) {
+   .landing-page {
+     animation: scroll 200s linear infinite;
+   }
+ }
+
+
+.main-message h3{
+    font-size: 3rem;
+    margin: 1rem 0;
+    color: rgb(206, 90, 103);
+    background: linear-gradient(
+        to right,
+        rgb(247, 250, 252) 0%,
+        rgb(175, 79, 184) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-message p{
+    color:white;
+    text-transform: none;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+
+.intro-btn{
+    display:flex;
+    justify-content: center;
+}
+
+
+.btn{
+    margin: 0 9px;
+    background: white;
+    font-family: "Kiwi Maru", monospace;
+    border-radius: 2rem;
+    color: rgba(36, 3, 36, 0.667);
+    padding: 1rem 2.5rem;
+    display:inline-block;
+    margin-top: 2rem;
+    transition: background-color 650ms;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+.btn:hover{
+    color: black;
+    background-color:rgb(175, 79, 184);
+}
+
+.scroll-down i{
+    color: white;
+    transition: color 658ms;
+    margin-top: 2rem;
+    font-size: 3.5rem;
+}
+
+.scroll-down i:hover{
+    color: rgb(180, 182, 51)
+}
+
+.about{
+    width: 100%;
+    min-height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+}
+
+.about .container{
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.about-img img{
+    height: 12rem;
+    width: auto;
+    /*border-radius: 50%;*/
+    margin: 2rem;
+    box-shadow: 0 20px 30px 0 rgba(0,255,255,0.15);
+}
+
+.about-text-box{
+   flex-grow :1;
+   flex-shrink: 0;
+   flex-basis: 0; 
+}
+
+.about-text-box h2{
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.about-text-box p{
+    font-family: "Lobster", sans-serif;
+    font-size: 1.4rem;
+    padding: 0;
+    margin-bottom: 1.45rem;
+}
+
+hr{
+    margin: 4rem 0;
+    background: linear-gradient(
+        to right,
+        rgb(32, 27, 24) 0%,
+        rgba(182,51,153,1) 100%
+    );
+    border:0;
+    height:1px;
+}
+
+.projects{
+    padding: 3rem 0;
+    min-height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+}
+
+.has-margin-right{
+    margin:0 1rem 0 0;
+}
+.project-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 1.45rem 5rem 1.45rem;
+}
+
+.project-img{
+    flex: 1;
+}
+
+.project-description{
+    flex:1;
+}
+
+.project-description h2{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Kiwi Maru", monospace;
+    margin: 1rem 0;
+    background-color: rgb(54, 54, 160);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.project-description p{
+    font-family: "Lobster", sans-serif;
+    font-weight: 100;
+    font-size: 1.4rem;
+}
+.project-description a{
+    font-size: 1.7rem;
+    font-family: "Kiwi Maru", monospace;
+    background-color: rgb(54, 54, 160);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-description i{
+    color: black;
+}
+
+.project-link{
+    display: inline-block;
+    margin: 2rem 0;
+    font-size: 1rem;
+}
+svg{
+    margin-bottom: 0;
+    padding-top: 0.2rem;
+}
+path{
+    margin-top: 1rem;
+}
+
+.project-link1{
+    display: inline-block;
+    margin: 1rem 0;
+    font-size: 0.5rem;
+    font-family: "Kiwi Maru", monospace;
+}
+
+
+.contact{
+    /* background-color: black; */
+    background-image: url("images/ezgif.com-gif-maker.gif");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    /* min-height: 100vh; */
+    /* max-width: 70rem; */
+    margin: auto;
+    padding-top: 5rem;
+    /* background-blend-mode: luminosity;
+    background-position: 0px 0px; 
+    background-size: cover;
+    background-repeat: repeat;  */
+    /* animation: scroll 70s linear infinite; */
+    /* perspective: 900px;
+    perspective-origin: 50% 50%; */
+}
+
+.contact h2{
+    color: white;
+    text-align: center;
+    font-size: 5rem;
+    margin-top: 5rem;
+    background: linear-gradient(
+        to right,
+        rgb(247, 250, 252) 0%,
+        rgb(213, 168, 218) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kiwi Maru, monospace;
+}
+
+.contact p{
+    color: white;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0.9rem 2rem;
+    font-family: "Kiwi Maru", monospace;
+}
+
+.contact .container{
+    min-height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+
+
+footer{
+    /* background-color: black; */
+    background-image: url("images/ezgif.com-gif-maker.gif");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 2.5rem;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* background-blend-mode: luminosity;
+    background-position: 0px 0px; 
+    background-size: cover;
+    background-repeat: repeat; 
+    animation: scroll 70s linear infinite;
+    perspective: 900px;
+    perspective-origin: 50% 50%; */
+}
+
+footer a{
+    margin: 0 0.2rem;
+}
+
+.footer-nav{
+    background: linear-gradient(
+        to right,
+        rgb(247, 250, 252) 0%,
+        rgb(175, 79, 184) 150%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kiwi Maru, monospace;
+}
+
+.footer-coded-by{
+    margin: 1rem 0;
+    background: linear-gradient(
+        to right,
+        rgb(247, 250, 252) 0%,
+        rgb(213, 162, 218) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kiwi Maru, monospace;
+}
+
+.footer-social{
+    margin: 0 0.5rem;
+    font-size: 2rem;
+}
+.title-heading h2{
+    margin: 6rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Kiwi Maru", monospace;
+    background: linear-gradient(
+        to right,
+        rgb(135, 104, 192) 0%,
+        black 20%,
+        rgb(197, 145, 204) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+@media (max-width: 750px){
+    .main-message h3{
+        font-size:3rem;
+    }
+    .about .container{
+        flex-direction: column;
+    }
+    p{
+        font: 1.3rem;
+    }
+    .title-heading{
+        margin:0;
+    }
+
+    .project-item{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        box-shadow: 0 20px 30px 0 rgba(255,255,255,0.15)
+    }
+    .project-img{
+        width:20rem;
+    }
+}
+.about-text-box h2{
+    background: linear-gradient(
+        to right,
+            rgb(135, 104, 192) 0%,
+            black 50%,
+            rgb(209, 165, 207) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Kiwi Maru", monospace;
+    font-weight: 700;
+    
+}
+
+@media (mmax-width: 665px){
+    .main-message{
+        top: 55%;
+    }
+    .main-message h2{
+        letter-spacing: 1rem;
+        font-size: 1.5rem;
+        width:29ch;
+    }
+
+    .main-message h3{
+        font-size: 2rem;
+    }
+    .main-message p{
+        font-size: 1.3rem;
+    }
+
+    .btn{
+        border-radius: 0.9rem;
+        padding: 0.9rem 0.9rem
+    }
+
+    .about-text-box h2{
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .about-text-box p{
+        margin: 0 0 2.45rem;
+    }
+    .title-heading h2{
+        margin-bottom: 2rem;
+    }
+    .title-heading p{
+        font-size: 1.5rem;
+    }
+
+    .contact .container{
+        flex-direction: column;
+    }
+
+    footer,
+    footer p{
+        font-size:1.2rem;
+    }
+}
+
+
